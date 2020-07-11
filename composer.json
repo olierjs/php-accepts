@@ -10,6 +10,7 @@
       "email": "hustapple132@gmail.com"
     }
   ],
+  "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
       "Press\\Utils\\": "src/"
