@@ -3,6 +3,7 @@
   "description": "accepts",
   "type": "library",
   "license": "MIT",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "TbhT",
@@ -11,7 +12,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Press\\": "src/"
+      "Press\\Utils\\": "src/"
     }
   },
   "require": {

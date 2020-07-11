@@ -10,7 +10,7 @@ class AcceptsTest extends TestCase
     private static function createRequestCharset($charset = null)
     {
         $req = new stdClass();
-        $req->header = [
+        $req->headers = $req->header = [
             'accept-charset' => $charset
         ];
 
@@ -20,7 +20,7 @@ class AcceptsTest extends TestCase
     private static function createRequestEncoding($encoding = null)
     {
         $req = new stdClass();
-        $req->header = [
+        $req->headers = $req->header = [
             'accept-encoding' => $encoding
         ];
 
@@ -30,7 +30,7 @@ class AcceptsTest extends TestCase
     private static function createRequestLanguage($language = null)
     {
         $req = new stdClass();
-        $req->header = [
+        $req->headers = $req->header = [
             'accept-language' => $language
         ];
 
@@ -40,7 +40,7 @@ class AcceptsTest extends TestCase
     private static function createRequestType($type = '')
     {
         $req = new stdClass();
-        $req->header = [
+        $req->headers = $req->header = [
             'accept' => $type
         ];
 
