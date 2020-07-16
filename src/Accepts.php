@@ -6,12 +6,12 @@ namespace Press\Utils;
 
 class Accepts
 {
-    private $headers;
+    private $req;
     private $negotiator;
 
     public function __construct($req)
     {
-        $this->headers = $req->header;
+        $this->req = $req;
         $this->negotiator = new Negotiator($req);
     }
 
@@ -27,7 +27,7 @@ class Accepts
             return $this->negotiator->mediaTypes();
         }
 
-        if (array_key_exists('accept', $this->headers) === false) {
+        if (array_key_exists('accept', $this->req->headers) === false) {
             return $types[0];
         }
 
