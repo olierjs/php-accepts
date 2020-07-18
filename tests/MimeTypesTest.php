@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
 
-use Press\Utils\MimeTypes;
+use Press\Utils\Mime;
 use PHPUnit\Framework\TestCase;
+use Press\Utils\Mime\MimeTypes;
 
 
 class MimeTypesTest extends TestCase
