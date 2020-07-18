@@ -63,7 +63,7 @@ class AcceptsTest extends TestCase
                 null, ['*']
             ],
             [
-                '', []
+                '', ['*']
             ]
         ];
     }
@@ -191,7 +191,7 @@ class AcceptsTest extends TestCase
 
         $req3 = self::createRequestLanguage('');
         $accept3 = new Accepts($req3);
-        self::assertEquals([], $accept3->languages());
+        self::assertEquals(['*'], $accept3->languages());
     }
 
 

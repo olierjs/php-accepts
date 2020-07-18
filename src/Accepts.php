@@ -15,11 +15,11 @@ class Accepts
         $this->negotiator = new Negotiator($req);
     }
 
-    private function type_($args, $types)
+    private function type_($types = null)
     {
         // support flattened arguments
         if ($types && !is_array($types)) {
-            $types = $args;
+            $types = func_get_args();
         }
 
         // no types, return all requested types
@@ -43,23 +43,23 @@ class Accepts
         return $types[$index];
     }
 
-    public function type($types_ = null)
+    public function type()
     {
         $args = func_get_args();
-        return self::type_($args, $types_);
+        return self::type_(...$args);
     }
 
-    public function types($types_ = null)
+    public function types()
     {
         $args = func_get_args();
-        return self::type_($args, $types_);
+        return self::type_(...$args);
     }
 
-    private function encoding_($args, $encodings_)
+    private function encoding_($encodings_ = null)
     {
         // support flattened arguments
         if ($encodings_ && !is_array($encodings_)) {
-            $encodings_ = $args;
+            $encodings_ = func_get_args();
         }
 
         // no encodings, return all requested encodings
@@ -68,30 +68,29 @@ class Accepts
         }
 
         $encoding = $this->negotiator->encodings($encodings_);
-        $result = empty($encoding) ? false : $encoding[0];
-        return $result;
+        return empty($encoding) ? false : $encoding[0];
     }
 
 
-    public function encoding($encodings_ = null)
+    public function encoding()
     {
         $args = func_get_args();
-        return $this->encoding_($args, $encodings_);
+        return $this->encoding_(...$args);
     }
 
 
-    public function encodings($encodings_ = null)
+    public function encodings()
     {
         $args = func_get_args();
-        return $this->encoding_($args, $encodings_);
+        return $this->encoding_(...$args);
     }
 
 
-    private function charset_($args, $charsets_)
+    private function charset_($charsets_ = null)
     {
-        // support flattend arguments
+        // support flattened arguments
         if ($charsets_ && !is_array($charsets_)) {
-            $charsets_ = $args;
+            $charsets_ = func_get_args();
         }
 
         // no charsets, returned all requested charsets
@@ -100,30 +99,29 @@ class Accepts
         }
 
         $charset = $this->negotiator->charsets($charsets_);
-        $result = empty($charset) ? false : $charset[0];
-        return $result;
+        return empty($charset) ? false : $charset[0];
     }
 
 
-    public function charset($charsets_ = null)
+    public function charset()
     {
         $args = func_get_args();
-        return $this->charset_($args, $charsets_);
+        return $this->charset_(...$args);
     }
 
 
-    public function charsets($charsets_ = null)
+    public function charsets()
     {
         $args = func_get_args();
-        return $this->charset_($args, $charsets_);
+        return $this->charset_(...$args);
     }
 
 
-    private function language_($args, $languages_)
+    private function language_($languages_ = null)
     {
         // support flattened arguments
-        if ($args && !is_array($languages_)) {
-            $languages_ = $args;
+        if ($languages_ && !is_array($languages_)) {
+            $languages_ = func_get_args();
         }
 
         // no languages, return all requested languages
@@ -132,35 +130,34 @@ class Accepts
         }
 
         $language = $this->negotiator->languages($languages_);
-        $result = empty($language) ? false : $language[0];
-        return $result;
+        return empty($language) ? false : $language[0];
     }
 
 
-    public function lang($languages_ = null)
+    public function lang()
     {
         $args = func_get_args();
-        return $this->language_($args, $languages_);
+        return $this->language_(...$args);
     }
 
 
-    public function langs($languages_ = null)
+    public function langs()
     {
         $args = func_get_args();
-        return $this->language_($args, $languages_);
+        return $this->language_(...$args);
     }
 
 
-    public function language($languages_ = null)
+    public function language()
     {
         $args = func_get_args();
-        return $this->language_($args, $languages_);
+        return $this->language_(...$args);
     }
 
 
-    public function languages($languages_ = null)
+    public function languages()
     {
         $args = func_get_args();
-        return $this->language_($args, $languages_);
+        return $this->language_(...$args);
     }
 }
